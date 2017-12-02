@@ -1,6 +1,6 @@
 <?php
-require 'Vaderus.php';
-require 'WildBeast.php';
+require 'Heroes/Vaderus.php';
+require 'Heroes/WildBeast.php';
 ?>
 <!doctype html>
 <html lang="en">
