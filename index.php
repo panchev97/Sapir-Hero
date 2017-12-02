@@ -56,7 +56,8 @@ $wildBeast = new WildBeast();
         </div>
         <div style="text-align: center;">
             <form>
-                <input class="btn btn-default btn-lg btn-block" type="submit" name="start" value="Start Battle">
+                <input class="btn btn-default btn-lg
+" type="submit" name="start" value="Start Battle">
             </form>
         </div>
     </div>
@@ -85,13 +86,13 @@ $wildBeast = new WildBeast();
     <?php
     // Start the battle if the button "Start Battle" is clicked..
     if (isset($_GET["start"])) {
+        $rapidStrikeLuckGenerator = rand(1, 100);
+        $doubleAttack = $vaderus->calculateDamage($wildBeast) * 2;
         echo "<div class='row'>";
             while ($rounds <= 20 && $vaderus->isAlive() && $wildBeast->isAlive()) {
                 //Checking players speed..
                 if ($vaderus->getSpeed() > $wildBeast->getSpeed()) {
                     //Vaderus attack first..
-                    $vaderus->attack($wildBeast);
-                    $wildBeast->attack($vaderus);
                     echo "<div class='col-lg-4'>";
                         echo "<section class='panel'>";
                             echo "<div class='panel-body'>";
@@ -99,7 +100,14 @@ $wildBeast = new WildBeast();
                                 echo "<p>Round <b>$rounds</b> Status: </p>";
                                 echo "<p>Vaderus Is The First Attacker In This Battle</p>";
                                 echo "<hr class='line'>";
-                                echo "<p>Vaderus Attacked !</p>";
+                                if ($rapidStrikeLuckGenerator >= 1 && $rapidStrikeLuckGenerator <= 10) {
+                                    echo "<p>Vaderus hits twice with <b>" . $vaderus->calculateDamage($wildBeast) * 2 . "</b> Damage</p>";
+                                    $wildBeast->reduceHealth($doubleAttack);
+                                } else {
+                                    $vaderus->attack($wildBeast);
+                                    echo "<p>Vaderus Attacked !</p>";
+                                }
+                                $wildBeast->attack($vaderus);
                                 echo "<p>Wild Beast Attacked !</p>";
                                 echo "<hr class='line'>";
                                 echo "<p>==> Vaderus Current Health => <b>" . $vaderus->getHealth() . "</b></p>";
@@ -111,7 +119,6 @@ $wildBeast = new WildBeast();
                 elseif ($vaderus->getSpeed() < $wildBeast->getSpeed()) {
                     //Wild Beast attack first..
                     $wildBeast->attack($vaderus);
-                    $vaderus->attack($wildBeast);
                     echo "<div class='col-lg-4'>";
                         echo "<section class='panel'>";
                             echo "<div class='panel-body'>";
@@ -119,8 +126,14 @@ $wildBeast = new WildBeast();
                                 echo "<p>Round <b>$rounds</b> Status: <p/>";
                                 echo "<p>Wild Beast Is The First Attacker In This Battle</p>";
                                 echo "<hr class='line'>";
+                                if ($rapidStrikeLuckGenerator >= 1 && $rapidStrikeLuckGenerator <= 10) {
+                                    echo "<p>Vaderus hits twice with <b>" . $vaderus->calculateDamage($wildBeast) * 2 . "</b> Damage</p>";
+                                    $wildBeast->reduceHealth($doubleAttack);
+                                } else {
+                                    $vaderus->attack($wildBeast);
+                                    echo "<p>Vaderus Attacked !</p>";
+                                }
                                 echo "<p>Wild Beast Attacked !</p>";
-                                echo "<p>Vaderus Attacked !</p>";
                                 echo "<hr class='line'>";
                                 echo "<p>==> Wild Beast Current Health => <b>" . $wildBeast->getHealth() . "</b></p>";
                                 echo "<p>==> Vaderus Current Health => <b>" . $vaderus->getHealth() . "</b></p>";
