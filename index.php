@@ -58,6 +58,28 @@ $wildBeast = new WildBeast();
             </form>
         </div>
     </div>
+    <!--Displaying the heroes current damage -->
+    <div class="row">
+        <div class="col-lg-6">
+            <section class="panel">
+                <div class="panel-body">
+                    <div style="text-align: center;">
+                        Vaderus Attacking Damage: <b><?= $vaderus->calculateDamage($wildBeast); ?></b>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-6">
+            <section class="panel">
+                <div class="panel-body">
+                    <div style="text-align: center;">
+                        Wild Beast Attacking Damage: <b><?= $wildBeast->calculateDamage($vaderus); ?></b>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <hr class="line">
     <?php
     // Start the battle if the button "Start Battle" is clicked..
     if (isset($_GET["start"])) {
@@ -74,10 +96,10 @@ $wildBeast = new WildBeast();
                                 //Printing Current Game Status
                                 echo "<p>Round <b>$rounds</b> Status: </p>";
                                 echo "<p>Vaderus Is The First Attacker In This Battle</p>";
-
-                                echo "<p>Vaderus Attacked The Wild Beast With " . $vaderus->calculateDamage($wildBeast) . " Damage</p>";
-                                echo "<p>Wild Beast Attacked Vaderus With " . $wildBeast->calculateDamage($vaderus) . " Damage</p>";
-
+                                echo "<hr class='line'>";
+                                echo "<p>Vaderus Attacked !</p>";
+                                echo "<p>Wild Beast Attacked !</p>";
+                                echo "<hr class='line'>";
                                 echo "<p>==> Vaderus Current Health => " . $vaderus->getHealth() . "</p>";
                                 echo "<p>==> Wild Beast Current Health => " . $wildBeast->getHealth() . "</p>";
                             echo "</div>";
@@ -94,10 +116,10 @@ $wildBeast = new WildBeast();
                                 //Printing Current Game Status
                                 echo "<p>Round <b>$rounds</b> Status: <p/>";
                                 echo "<p>Wild Beast Is The First Attacker In This Battle</p>";
-
-                                echo "<p>Wild Beast Attacked Vaderus With " . $wildBeast->calculateDamage($vaderus) . " Damage</p>";
-                                echo "<p>Vaderus Attacked Wild Beast With " . $vaderus->calculateDamage($wildBeast) . " Damage </p>";
-
+                                echo "<hr class='line'>";
+                                echo "<p>Wild Beast Attacked !</p>";
+                                echo "<p>Vaderus Attacked !</p>";
+                                echo "<hr class='line'>";
                                 echo "<p>==> Wild Beast Current Health => " . $wildBeast->getHealth() . "</p>";
                                 echo "<p>==> Vaderus Current Health => " . $vaderus->getHealth() . "</p>";
                             echo "</div>";
@@ -109,6 +131,7 @@ $wildBeast = new WildBeast();
                 }
                 $rounds++;
             }
+            // Check who's the winner in the battle
             $winner = $vaderus->isAlive() ? "Winner is " . $vaderus->getName() : "Winner is " . $wildBeast->getName();
         echo "</div>";
         echo "<div class='row'>";

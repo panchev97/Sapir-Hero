@@ -1,6 +1,12 @@
 .panel-body {
     background-color: #0000001f
 }
+
 .row {
     margin-top: 25px;
+}
+
+.line {
+    background-color: #fff;
+    border-top: 2px dashed #8c8b8b;
 }
