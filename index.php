@@ -100,8 +100,8 @@ $wildBeast = new WildBeast();
                                 echo "<p>Vaderus Attacked !</p>";
                                 echo "<p>Wild Beast Attacked !</p>";
                                 echo "<hr class='line'>";
-                                echo "<p>==> Vaderus Current Health => " . $vaderus->getHealth() . "</p>";
-                                echo "<p>==> Wild Beast Current Health => " . $wildBeast->getHealth() . "</p>";
+                                echo "<p>==> Vaderus Current Health => <b>" . $vaderus->getHealth() . "</b></p>";
+                                echo "<p>==> Wild Beast Current Health => <b>" . $wildBeast->getHealth() . "</b></p>";
                             echo "</div>";
                         echo "</<section>";
                     echo "</div>";
@@ -120,8 +120,8 @@ $wildBeast = new WildBeast();
                                 echo "<p>Wild Beast Attacked !</p>";
                                 echo "<p>Vaderus Attacked !</p>";
                                 echo "<hr class='line'>";
-                                echo "<p>==> Wild Beast Current Health => " . $wildBeast->getHealth() . "</p>";
-                                echo "<p>==> Vaderus Current Health => " . $vaderus->getHealth() . "</p>";
+                                echo "<p>==> Wild Beast Current Health => <b>" . $wildBeast->getHealth() . "</b></p>";
+                                echo "<p>==> Vaderus Current Health => <b>" . $vaderus->getHealth() . "</b></p>";
                             echo "</div>";
                          echo "</<section>";
                     echo "</div>";
@@ -147,4 +147,3 @@ $wildBeast = new WildBeast();
         echo "</div>";
     }
 echo "</div>";
-
