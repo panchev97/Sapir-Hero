@@ -86,10 +86,10 @@ $wildBeast = new WildBeast();
     <?php
     // Start the battle if the button "Start Battle" is clicked..
     if (isset($_GET["start"])) {
-        $rapidStrikeLuckGenerator = rand(1, 100);
-        $doubleAttack = $vaderus->calculateDamage($wildBeast) * 2;
         echo "<div class='row'>";
             while ($rounds <= 20 && $vaderus->isAlive() && $wildBeast->isAlive()) {
+                $rapidStrikeLuckGenerator = rand(1, 100);
+                $doubleAttack = $vaderus->calculateDamage($wildBeast) * 2;
                 //Checking players speed..
                 if ($vaderus->getSpeed() > $wildBeast->getSpeed()) {
                     //Vaderus attack first..
