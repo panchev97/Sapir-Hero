@@ -12,6 +12,8 @@ class WildBeast
 
     private $speed;
 
+    private $luck;
+
     /**
      * WildBeast constructor.
      */
@@ -21,6 +23,7 @@ class WildBeast
         $this->strength = rand(60, 90);
         $this->defence = rand(40, 60);
         $this->speed = rand(40, 60);
+        $this->luck = rand(25, 40);
     }
 
     /**
@@ -61,6 +64,14 @@ class WildBeast
     public function getSpeed(): int
     {
         return $this->speed;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLuck(): int
+    {
+        return $this->luck;
     }
 
     public function reduceHealth(int $health)

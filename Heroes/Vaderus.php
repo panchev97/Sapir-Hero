@@ -12,6 +12,8 @@ class Vaderus
 
     private $speed;
 
+    private $luck;
+
     /**
      * Vaderus constructor.
      */
@@ -21,6 +23,7 @@ class Vaderus
         $this->strength = rand(70, 80);
         $this->defence = rand(45, 55);
         $this->speed = rand(40, 50);
+        $this->luck = rand(10, 30);
     }
 
     /**
@@ -61,6 +64,11 @@ class Vaderus
     public function getSpeed(): int
     {
         return $this->speed;
+    }
+
+    public function getLuck(): int
+    {
+        return $this->luck;
     }
 
     public function reduceHealth(int $health)

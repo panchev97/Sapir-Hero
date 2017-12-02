@@ -33,6 +33,7 @@ $wildBeast = new WildBeast();
                         <p>Starting Strength: <b><?= $vaderus->getStrength(); ?></b> </p>
                         <p>Starting Defence: <b><?= $vaderus->getDefence(); ?></b></p>
                         <p>Starting Speed: <b><?= $vaderus->getSpeed(); ?></b></p>
+                        <p>Luck: <b><?= $vaderus->getLuck(); ?></b> </p>
                     </div>
                     <img class="heroes" width="100" height="100" src="styles/images/hero.png">
                 </div>
@@ -47,6 +48,7 @@ $wildBeast = new WildBeast();
                         <p>Starting Strength: <b><?= $wildBeast->getStrength(); ?></b> </p>
                         <p>Starting Defence: <b><?= $wildBeast->getDefence(); ?></b></p>
                         <p>Starting Speed: <b><?= $wildBeast->getSpeed(); ?></b></p>
+                        <p>Luck: <b><?= $wildBeast->getLuck(); ?></b></p>
                     </div>
                     <img class="heroes" width="100" height="100" src="styles/images/beast.png">
                 </div>
@@ -126,8 +128,46 @@ $wildBeast = new WildBeast();
                          echo "</<section>";
                     echo "</div>";
                 } else {
-                    //Todo: Add functionality when the heroes speed is equal..
-                    echo "Speed is equal";
+                    if ($vaderus->getLuck() > $wildBeast->getLuck()) {
+                        //Vaderus attack first..
+                        $vaderus->attack($wildBeast);
+                        $wildBeast->attack($vaderus);
+                        echo "<div class='col-lg-4'>";
+                        echo "<section class='panel'>";
+                        echo "<div class='panel-body'>";
+                        //Printing Current Game Status
+                        echo "<p>Round <b>$rounds</b> Status: </p>";
+                        echo "<p>Vaderus Is The First Attacker In This Battle</p>";
+                        echo "<hr class='line'>";
+                        echo "<p>Vaderus Attacked !</p>";
+                        echo "<p>Wild Beast Attacked !</p>";
+                        echo "<hr class='line'>";
+                        echo "<p>==> Vaderus Current Health => <b>" . $vaderus->getHealth() . "</b></p>";
+                        echo "<p>==> Wild Beast Current Health => <b>" . $wildBeast->getHealth() . "</b></p>";
+                        echo "</div>";
+                        echo "</<section>";
+                        echo "</div>";
+                    }
+                    elseif ($vaderus->getLuck() < $wildBeast->getLuck() ) {
+                        //Wild Beast attack first..
+                        $wildBeast->attack($vaderus);
+                        $vaderus->attack($wildBeast);
+                        echo "<div class='col-lg-4'>";
+                        echo "<section class='panel'>";
+                        echo "<div class='panel-body'>";
+                        //Printing Current Game Status
+                        echo "<p>Round <b>$rounds</b> Status: <p/>";
+                        echo "<p>Wild Beast Is The First Attacker In This Battle</p>";
+                        echo "<hr class='line'>";
+                        echo "<p>Wild Beast Attacked !</p>";
+                        echo "<p>Vaderus Attacked !</p>";
+                        echo "<hr class='line'>";
+                        echo "<p>==> Wild Beast Current Health => <b>" . $wildBeast->getHealth() . "</b></p>";
+                        echo "<p>==> Vaderus Current Health => <b>" . $vaderus->getHealth() . "</b></p>";
+                        echo "</div>";
+                        echo "</<section>";
+                        echo "</div>";
+                    }
                 }
                 $rounds++;
             }
