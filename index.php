@@ -139,6 +139,7 @@ $wildBeast = new WildBeast();
                                     echo "<p>Vaderus hits twice with <b>" . $vaderus->calculateDamage($wildBeast) * 2 . "</b> Damage</p>";
                                     $wildBeast->reduceHealth($doubleAttack);
                                 } else {
+                                    echo "<p>No Bonus Attack/Defence</p>";
                                     $vaderus->attack($wildBeast);
                                     echo "<p>Vaderus Attacked !</p>";
                                 }
@@ -147,6 +148,7 @@ $wildBeast = new WildBeast();
                                     echo "<p>Valderus uses Magic Shield !</p>";
                                     $vaderus->reduceHealth($getWildBeastHalfDamage);
                                 } else {
+                                    echo "<p>No Bonus Attack/Defence</p>";
                                     $wildBeast->attack($vaderus);
                                 }
                                 echo "<p>Wild Beast Attacked !</p>";
@@ -173,6 +175,7 @@ $wildBeast = new WildBeast();
                             echo "<p>Vaderus hits twice with <b>" . $vaderus->calculateDamage($wildBeast) * 2 . "</b> Damage</p>";
                             $wildBeast->reduceHealth($doubleAttack);
                         } else {
+                            echo "<p>No Bonus Attack/Defence</p>";
                             $vaderus->attack($wildBeast);
                             echo "<p>Vaderus Attacked !</p>";
                         }
@@ -181,6 +184,7 @@ $wildBeast = new WildBeast();
                             echo "<p>Valderus uses Magic Shield !</p>";
                             $vaderus->reduceHealth($getWildBeastHalfDamage);
                         } else {
+                            echo "<p>No Bonus Attack/Defence</p>";
                             $wildBeast->attack($vaderus);
                         }
                         echo "<p>Vaderus Attacked !</p>";
@@ -208,6 +212,7 @@ $wildBeast = new WildBeast();
                             echo "<p>Vaderus hits twice with <b>" . $vaderus->calculateDamage($wildBeast) * 2 . "</b> Damage</p>";
                             $wildBeast->reduceHealth($doubleAttack);
                         } else {
+                            echo "<p>No Bonus Attack/Defence</p>";
                             $vaderus->attack($wildBeast);
                             echo "<p>Vaderus Attacked !</p>";
                         }
@@ -216,6 +221,7 @@ $wildBeast = new WildBeast();
                             echo "<p>Valderus uses Magic Shield !</p>";
                             $vaderus->reduceHealth($getWildBeastHalfDamage);
                         } else {
+                            echo "<p>No Bonus Attack/Defence</p>";
                             $wildBeast->attack($vaderus);
                         }
                         echo "<p>Wild Beast Attacked !</p>";
