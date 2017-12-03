@@ -134,7 +134,7 @@ $wildBeast = new WildBeast();
                                     echo "<p>Vaderus Attacked !</p>";
                                 }
 
-                                if ($magicShieldLuckGenerator >= 1 && $getWildBeastHalfDamage <= 20) {
+                                if ($magicShieldLuckGenerator >= 1 && $magicShieldLuckGenerator <= 20) {
                                     $vaderus->reduceHealth($getWildBeastHalfDamage);
                                 } else {
                                     echo "<p>No Bonus Attack/Defence</p>";
