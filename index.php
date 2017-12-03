@@ -87,6 +87,27 @@ $wildBeast = new WildBeast();
     // Start the battle if the button "Start Battle" is clicked..
     if (isset($_GET["start"])) {
         echo "<div class='row'>";
+            //Displaying the First Attacker Name
+        //$winner = $vaderus->isAlive() ? "Winner is " . $vaderus->getName() : "Winner is " . $wildBeast->getName();
+            echo "<div class='col-lg-12'>";
+                echo "<section class='panel'>";
+                    echo "<div class='panel-body'>";
+                        echo "<div style='text-align: center;'>";
+                            if ($vaderus->getSpeed() > $wildBeast->getSpeed() )  {
+                                echo "Vaderus Is The First Attacker !";
+                            } elseif ($vaderus->getSpeed() < $wildBeast->getSpeed()) {
+                                echo "Wild Beast Is The First Attacker !";
+                            } else {
+                                if ($vaderus->getLuck() > $wildBeast->getLuck()) {
+                                    echo "Vaderus Is The First Attacker !";
+                                } elseif ($vaderus->getLuck() < $wildBeast->getLuck()) {
+                                    echo "Wild Beast Is The First Attacker !";
+                                }
+                            }
+                        echo "</div>";
+                    echo "</div>";
+                echo "</section>";
+            echo "</div>";
             while ($rounds <= 20 && $vaderus->isAlive() && $wildBeast->isAlive()) {
                 $rapidStrikeLuckGenerator = rand(1, 100);
                 $doubleAttack = $vaderus->calculateDamage($wildBeast) * 2;
@@ -102,12 +123,12 @@ $wildBeast = new WildBeast();
                             echo "<div class='panel-body'>";
                                 //Printing Current Game Status
                                 echo "<p>Round <b>$rounds</b> Status: </p>";
-                                echo "<p>Vaderus Is The First Attacker In This Battle</p>";
                                 echo "<hr class='line'>";
                                 if ($rapidStrikeLuckGenerator >= 1 && $rapidStrikeLuckGenerator <= 10) {
                                     echo "<p>Vaderus hits twice with <b>" . $vaderus->calculateDamage($wildBeast) * 2 . "</b> Damage</p>";
                                     $wildBeast->reduceHealth($doubleAttack);
                                 } else {
+                                    echo "<p>No Bonus Attack/Defence</p>";
                                     $vaderus->attack($wildBeast);
                                     echo "<p>Vaderus Attacked !</p>";
                                 }
@@ -115,6 +136,7 @@ $wildBeast = new WildBeast();
                                 if ($magicShieldLuckGenerator >= 1 && $getWildBeastHalfDamage <= 20) {
                                     $vaderus->reduceHealth($getWildBeastHalfDamage);
                                 } else {
+                                    echo "<p>No Bonus Attack/Defence</p>";
                                     $wildBeast->attack($vaderus);
                                 }
                                 echo "<p>Wild Beast Attacked !</p>";
@@ -132,7 +154,6 @@ $wildBeast = new WildBeast();
                             echo "<div class='panel-body'>";
                                 //Printing Current Game Status
                                 echo "<p>Round <b>$rounds</b> Status: <p/>";
-                                echo "<p>Wild Beast Is The First Attacker In This Battle</p>";
                                 echo "<hr class='line'>";
                                 if ($rapidStrikeLuckGenerator >= 1 && $rapidStrikeLuckGenerator <= 10) {
                                     echo "<p>Valderus uses Magic Shield !</p>";
@@ -168,7 +189,6 @@ $wildBeast = new WildBeast();
                         echo "<div class='panel-body'>";
                         //Printing Current Game Status
                         echo "<p>Round <b>$rounds</b> Status: </p>";
-                        echo "<p>Vaderus Is The First Attacker In This Battle</p>";
                         echo "<hr class='line'>";
                         if ($rapidStrikeLuckGenerator >= 1 && $rapidStrikeLuckGenerator <= 10) {
                             echo "<p>Valderus uses Magic Shield !</p>";
@@ -205,7 +225,6 @@ $wildBeast = new WildBeast();
                         echo "<div class='panel-body'>";
                         //Printing Current Game Status
                         echo "<p>Round <b>$rounds</b> Status: <p/>";
-                        echo "<p>Wild Beast Is The First Attacker In This Battle</p>";
                         echo "<hr class='line'>";
                         if ($rapidStrikeLuckGenerator >= 1 && $rapidStrikeLuckGenerator <= 10) {
                             echo "<p>Valderus uses Magic Shield !</p>";
