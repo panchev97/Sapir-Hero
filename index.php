@@ -93,8 +93,6 @@ $wildBeast = new WildBeast();
 
                 $magicShieldLuckGenerator = rand(1, 100);
                 $getWildBeastHalfDamage = $wildBeast->calculateDamage($vaderus) / 2;
-                var_dump($magicShieldLuckGenerator);
-                var_dump($getWildBeastHalfDamage);
 
                 //Checking players speed..
                 if ($vaderus->getSpeed() > $wildBeast->getSpeed()) {
