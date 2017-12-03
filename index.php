@@ -12,6 +12,7 @@ require 'Heroes/WildBeast.php';
     <title>Sapir's Hero</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="icon" href="styles/images/sapir-game-favicon.png" type="image/gif" sizes="16x16">
 </head>
 <body>
 
