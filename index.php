@@ -88,8 +88,7 @@ $wildBeast = new WildBeast();
     // Start the battle if the button "Start Battle" is clicked..
     if (isset($_GET["start"])) {
         echo "<div class='row'>";
-            //Displaying the First Attacker Name
-        //$winner = $vaderus->isAlive() ? "Winner is " . $vaderus->getName() : "Winner is " . $wildBeast->getName();
+            //Displaying the First Attacker
             echo "<div class='col-lg-12'>";
                 echo "<section class='panel'>";
                     echo "<div class='panel-body'>";
@@ -135,12 +134,13 @@ $wildBeast = new WildBeast();
                                 }
 
                                 if ($magicShieldLuckGenerator >= 1 && $magicShieldLuckGenerator <= 20) {
+                                    echo "<p>Valderus uses Magic Shield !</p>";
                                     $vaderus->reduceHealth($getWildBeastHalfDamage);
                                 } else {
                                     echo "<p>No Bonus Attack/Defence</p>";
                                     $wildBeast->attack($vaderus);
+                                    echo "<p>Wild Beast Attacked !</p>";
                                 }
-                                echo "<p>Wild Beast Attacked !</p>";
                                 echo "<hr class='line'>";
                                 echo "<p>==> Vaderus Current Health => <b>" . $vaderus->getHealth() . "</b></p>";
                                 echo "<p>==> Wild Beast Current Health => <b>" . $wildBeast->getHealth() . "</b></p>";
@@ -158,7 +158,6 @@ $wildBeast = new WildBeast();
                                 echo "<hr class='line'>";
                                 echo "<p>Wild Beast Attacked !</p>";
                                 if ($rapidStrikeLuckGenerator >= 1 && $rapidStrikeLuckGenerator <= 10) {
-                                    echo "<p>Valderus uses Magic Shield !</p>";
                                     echo "<p>Vaderus hits twice with <b>" . $vaderus->calculateDamage($wildBeast) * 2 . "</b> Damage</p>";
                                     $wildBeast->reduceHealth($doubleAttack);
                                 } else {
@@ -173,6 +172,7 @@ $wildBeast = new WildBeast();
                                 } else {
                                     echo "<p>No Bonus Attack/Defence</p>";
                                     $wildBeast->attack($vaderus);
+                                    echo "<p>Wild Beast Attacked !</p>";
                                 }
                                 echo "<hr class='line'>";
                                 echo "<p>==> Wild Beast Current Health => <b>" . $wildBeast->getHealth() . "</b></p>";
@@ -192,7 +192,6 @@ $wildBeast = new WildBeast();
                         echo "<p>Round <b>$rounds</b> Status: </p>";
                         echo "<hr class='line'>";
                         if ($rapidStrikeLuckGenerator >= 1 && $rapidStrikeLuckGenerator <= 10) {
-                            echo "<p>Valderus uses Magic Shield !</p>";
                             echo "<p>Vaderus hits twice with <b>" . $vaderus->calculateDamage($wildBeast) * 2 . "</b> Damage</p>";
                             $wildBeast->reduceHealth($doubleAttack);
                         } else {
@@ -207,9 +206,8 @@ $wildBeast = new WildBeast();
                         } else {
                             echo "<p>No Bonus Attack/Defence</p>";
                             $wildBeast->attack($vaderus);
+                            echo "<p>Wild Beast Attacked !</p>";
                         }
-                        echo "<p>Vaderus Attacked !</p>";
-                        echo "<p>Wild Beast Attacked !</p>";
                         echo "<hr class='line'>";
                         echo "<p>==> Vaderus Current Health => <b>" . $vaderus->getHealth() . "</b></p>";
                         echo "<p>==> Wild Beast Current Health => <b>" . $wildBeast->getHealth() . "</b></p>";
@@ -227,7 +225,6 @@ $wildBeast = new WildBeast();
                         echo "<hr class='line'>";
                         echo "<p>Wild Beast Attacked !</p>";
                         if ($rapidStrikeLuckGenerator >= 1 && $rapidStrikeLuckGenerator <= 10) {
-                            echo "<p>Valderus uses Magic Shield !</p>";
                             echo "<p>Vaderus hits twice with <b>" . $vaderus->calculateDamage($wildBeast) * 2 . "</b> Damage</p>";
                             $wildBeast->reduceHealth($doubleAttack);
                         } else {
@@ -237,11 +234,12 @@ $wildBeast = new WildBeast();
                         }
 
                         if ($magicShieldLuckGenerator >= 1 && $magicShieldLuckGenerator <= 20) {
-                            echo "<p>Valderus uses Magic Shield !</p>";
+                            echo "<p>Vaderus uses Magic Shield !</p>";
                             $vaderus->reduceHealth($getWildBeastHalfDamage);
                         } else {
                             echo "<p>No Bonus Attack/Defence</p>";
                             $wildBeast->attack($vaderus);
+                            echo "<p>Wild Beast Attacked !</p>";
                         }
                         echo "<hr class='line'>";
                         echo "<p>==> Wild Beast Current Health => <b>" . $wildBeast->getHealth() . "</b></p>";
